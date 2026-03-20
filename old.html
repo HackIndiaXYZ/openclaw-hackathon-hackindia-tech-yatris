@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Proof of Human</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>🔐 Proof of Human Internet</h1>
+  <p>Verify real humans using behavior intelligence</p>
+  <button>Get Started</button>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="card">🧠 Behavior Analysis</div>
+  <div class="card">⚡ Real-time Detection</div>
+  <div class="card">🔒 Privacy First</div>
+</section>
+
+<!-- DEMO -->
+    <div class="verify-buttons">
+  <button onclick="showTest('behavior')">Behavior Test</button>
+  <button onclick="showTest('drawing')">Drawing Test</button>
+  <button onclick="showTest('click')">Click Test</button>
+  <button onclick="showTest('bot')">Simulate Bot</button>
+</div>
+<section>
+  <h2>Live Verification</h2>
+
+  <button id="startBtn">Start</button>
+  <button id="botBtn">Simulate Bot</button>
+
+  <div id="interactionArea">Move mouse here 👇</div>
+
+  <div class="result">
+    <h2 id="score">Human Score: --</h2>
+
+    <div id="progressContainer">
+      <div id="progressBar"></div>
+    </div>
+
+    <h3 id="verdict">Verdict: --</h3>
+
+    <p id="insight">Insight: --</p>
+
+    <p>Curiosity: <span id="curiosity">--</span></p>
+    <p>Attention: <span id="attention">--</span></p>
+    <p>Flow: <span id="flow">--</span></p>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="usecases">
+  <div>Social Media</div>
+  <div>Online Voting</div>
+  <div>Gaming</div>
+  <div>Crypto Airdrops</div>
+</section>
+
+<div id="behaviorTest" class="test-box">Move mouse here 👇</div>
+<canvas id="drawingTest" class="test-box" width="400" height="200"></canvas>
+<div id="clickTest" class="test-box">
+  Click randomly inside this box
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

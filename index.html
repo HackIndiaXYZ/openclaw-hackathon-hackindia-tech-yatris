@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HumanProof</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="particles"></div>
+
+  <script>
+const particlesContainer = document.querySelector(".particles");
+
+for (let i = 0; i < 40; i++) {
+  const dot = document.createElement("span");
+
+  dot.style.left = Math.random() * 100 + "vw";
+  dot.style.animationDuration = (3 + Math.random() * 5) + "s";
+  dot.style.opacity = Math.random();
+
+  particlesContainer.appendChild(dot);
+}
+</script>
+<div class="scroll-bar"></div>
+<!-- NAVBAR -->
+<nav class="navbar">
+  
+  <p class="logo" style="font-size: 30px;">
+  <span class="live-dot"></span>
+  HumanProof
+</p>
+
+  <div class="nav-links">
+    <a href="#features" style="font-size: 35px">Features</a>
+    <a href="#liveDemo" style="font-size: 35px">Live Demo</a>
+    <a href="#api" style="font-size: 35px">SysWork</a>
+    <a href="#about" style="font-size: 35px">Us</a>
+    <a href="#" style="font-size: 35px">Login</a>
+  </div>
+
+ <button class="api-btn" onclick="getApiKey()" style="font-size: 20px;">GET API KEY</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- LEFT -->
+  <div class="hero-left" style="margin: 40px;">
+
+    <p class="badge" style="margin: 1px;">v2.0 KINEMATIC ENGINE LIVE</p>
+
+    <h1 style="font-size: 120px;">
+      Verify Humans,<br>
+      <span>Block Bots.</span>
+    </h1>
+
+    <p class="subtitle", style=" font-size: 30px;">
+      Invisible, behavior-based verification for the modern internet.<br>
+      No captchas, no puzzles, just pure entropy analysis.
+    </p>
+
+    <div style="font-size: 10px;" class="buttons">
+      <a href="old.html">
+  <button class="primary" style="font-size: 30px;">▶ Try Live Demo</button>
+</a>
+      <!-- <button class="primary"  onclick="openDemo()">▶ Try Live Demo</button> -->
+      <button class="secondary" style="font-size: 25px;" >&lt;/&gt; View API Docs</button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================
+   PAGE 2 - UNIQUE FEATURES SECTION
+========================= -->
+
+<section id="features" class="unique-section section-animate">
+
+  <h2 class="title" style="font-size: 90px;">What makes us different :
+
+
+
+</h2>
+
+  <div class="cards">
+
+    <!-- CARD 1 -->
+    <div class="card">
+      <div class="icon" style="font-weight: bold; color: #ff2d2d;">⬢ Human Curiosity Test</div>
+      <h3>Human Curiosity Test measures how naturally a user explores and interacts with content, identifying genuine human behavior through small variations in movement, hesitation, and exploration patterns.</h3>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card">
+      <div class="icon" style="font-weight: bold; color: #ff2d2d;" >⬢ Attention Shift Detection </div>
+      <h3>Attention Shift Detection tracks how a user’s focus changes over time, identifying natural human attention patterns versus consistent, bot-like behavior.</h3>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card">
+      <div class="icon" style="font-weight: bold; color: #ff2d2d;" >⬢ Human Score Engine</div>
+      <h3>Human Score Engine combines multiple behavioral signals to generate a real-time score indicating the likelihood of a user being human.</h3>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="card">
+      <div class="icon" style="font-weight: bold; color: #ff2d2d;">⬢ Natural Flow Analysis</div>
+      <h3>Natural Flow Analysis evaluates the smoothness and variation in user interactions, distinguishing organic human movement from rigid, automated actions.</h3>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="workflow-section">
+
+  <h2 class="workflow-title">
+    How Our <span>System Works</span>
+  </h2>
+
+  <div class="workflow-container">
+
+    <!-- STEP 1 -->
+    <div class="workflow-step">
+      <div class="step-circle">1</div>
+      <h3>User Interaction</h3>
+      <p>
+        Captures real-time mouse movement, clicks, scrolling, and behavior patterns.
+      </p>
+    </div>
+
+    <!-- ARROW -->
+    <div class="workflow-arrow">→</div>
+
+    <!-- STEP 2 -->
+    <div class="workflow-step">
+      <div class="step-circle">2</div>
+      <h3>Behavior Processing</h3>
+      <p>
+        Filters raw interaction data and extracts meaningful behavioral signals.
+      </p>
+    </div>
+
+    <!-- ARROW -->
+    <div class="workflow-arrow">→</div>
+
+    <!-- STEP 3 -->
+    <div class="workflow-step active">
+      <div class="step-circle">3</div>
+      <h3>AI Analysis</h3>
+      <p>
+        Analyzes curiosity, attention, and flow using intelligent models.
+      </p>
+    </div>
+
+    <!-- ARROW -->
+    <div class="workflow-arrow">→</div>
+
+    <!-- STEP 4 -->
+    <div class="workflow-step">
+      <div class="step-circle">4</div>
+      <h3>Scoring System</h3>
+      <p>
+        Generates a real-time human verification score (0–100).
+      </p>
+    </div>
+
+    <!-- ARROW -->
+    <div class="workflow-arrow">→</div>
+
+    <!-- STEP 5 -->
+    <div class="workflow-step">
+      <div class="step-circle">5</div>
+      <h3>Final Output</h3>
+      <p>
+        Classifies users as human or bot and provides instant feedback.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Page 4  -->
+ 
+<section class="journey-section">
+
+  <h2 class="journey-title" style="font-size: 70px;">
+    The Only Platform That Protects Your Entire User Journey
+  </h2>
+<!-- 
+  <p class="journey-subtext" style="font-size: 30px;">
+    HumanProof secures every stage of the user lifecycle - from onboarding to continuous interaction. 
+    One system. Real-time intelligence. Zero friction for real humans.
+  </p> -->
+
+  <div class="journey-container" style="margin-bottom: 200px;">
+
+    <!-- 1 -->
+    <div class="journey-card" style="height: 500px; width: 750px;">
+      <h3 style="font-size: 50px;">Onboarding Protection</h3>
+      <ul style="font-size: 50px;">
+        <li>Bot Registration Blocking</li>
+        <li>Fake Identity Detection</li>
+        <li>Automation Pattern Analysis</li>
+        <li>Behavior Fingerprinting</li>
+      </ul>
+    </div>
+
+    <!-- 2 -->
+    <div class="journey-card middle">
+      <h3 style="font-size: 50px;" >Session Intelligence</h3>
+
+      <ul style="font-size: 50px;">
+        <li>Attention Shift Tracking</li>
+        <li>Interaction Flow Analysis</li>
+        <li>Session Risk Detection</li>
+        <li>Real-time Behavior AI</li>
+      </ul>
+    </div>
+
+    <!-- 3 -->
+    <div class="journey-card">
+      <h3 style="font-size: 50px;">Platform Defense</h3>
+
+      <ul style="font-size: 50px;" >
+        <li>Bot Activity Blocking</li>
+        <li>Scraping Prevention</li>
+        <li>Abuse Detection</li>
+        <li>API Protection</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="cursor-glow"></div>
+</section>
+
+<section class="about-contact-section">
+
+  <div class="overlay"></div>
+
+  <!-- CENTER RED LINE -->
+  <div class="divider"></div>
+
+  <div class="content-container">
+
+    <!-- LEFT: ABOUT -->
+    <div class="about-left">
+      <h2 style="font-size: 80px;">About <span>HumanProof</span></h2>
+
+      <p style="font-size: 40px;">
+        HumanProof is a next-generation verification system designed to distinguish real users from bots using behavioral intelligence. Instead of interrupting users with captchas, our system analyzes patterns like 
+        <span class="highlight">curiosity</span>, 
+        <span class="highlight">attention</span>, and 
+        <span class="highlight">interaction flow</span>.Our goal is to build a more 
+        <span class="highlight">secure</span>, 
+        <span class="highlight">intelligent</span>, and 
+        <span class="highlight">human-first</span> internet.
+      <p>
+    </div>
+
+    <!-- RIGHT: CONTACT -->
+    <div class="contact-right">
+      <h2 style="font-size: 70px">Get In Touch</h2>
+
+      <div class="contact-box" style="font-size:50px">
+        <p><b>Name:</b> Your Name</p>
+        <p><b>Email:</b> your@email.com</p>
+        <p><b>Contact:</b> +91 XXXXX XXXXX</p>
+        <p><b>Address:</b> Your Address</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOLLOW US -->
+  <div class="follow-section">
+    <p>Follow Us</p>
+    <div class="icons">
+      <span>X</span>
+      <span>F</span>
+      <span>in</span>
+      <span>▶</span>
+      <span>IG</span>
+      <span>P</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- JS LINK -->
+<script src="script.js"></script>
+<script src="script2.js"></script>
+<script src="server.js"></script>
+
+</script>
+</body>
+</html>
+
+
+
+

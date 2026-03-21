@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proof of Human</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  width: 220px;
+  height: 100vh;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+}
+
+.sidebar h2 {
+  color: #00eaff;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: block;
+  margin: 15px 0;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #ff3b3b;
+}
+
+/* Main */
+.main {
+  margin-left: 240px;
+  padding: 20px;
+}
+
+/* Top Bar */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  background: green;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+/* Glass Card */
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 20px rgba(0,255,255,0.1);
+}
+
+/* Layout */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Demo Area */
+.demo {
+  height: 300px;
+  border: 2px dashed #00eaff;
+  position: relative;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #00eaff;
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Metrics */
+.metric {
+  margin: 10px 0;
+}
+
+/* Progress */
+.progress {
+  height: 20px;
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  width: 0%;
+  background: red;
+  transition: 0.3s;
+}
+
+/* Result */
+.result {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+/* Button */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #00eaff;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media(max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+  .main {
+    margin-left: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h2>Proof of Human</h2>
+  <a href="#">Dashboard</a>
+  <a href="#">Live Demo</a>
+  <a href="#">Analytics</a>
+</div>
+
+<div class="main">
+
+<div class="top">
+  <h1>Human Verification Engine</h1>
+  <div class="badge">LIVE</div>
+</div>
+
+<div class="grid">
+
+<!-- LEFT -->
+<div class="card">
+  <h3>Live Behavior Tracking</h3>
+  <div class="demo" id="demo"></div>
+</div>
+
+<!-- RIGHT -->
+<div class="card">
+  <h3>Real-time Analysis</h3>
+
+  <div class="metric">Curiosity: <span id="curiosity">0</span></div>
+  <div class="metric">Attention: <span id="attention">0</span></div>
+  <div class="metric">Flow: <span id="flow">0</span></div>
+  <div class="metric">Pause: <span id="pause">0</span></div>
+
+  <div class="metric">Human Score</div>
+  <div class="progress">
+    <div class="bar" id="bar"></div>
+  </div>
+
+  <div class="result" id="result">Waiting...</div>
+
+  <button onclick="resetTest()">Start New Test</button>
+</div>
+
+</div>
+
+</div>
+
+<script>
+let moves = 0;
+let lastMove = Date.now();
+let pauses = 0;
+
+const demo = document.getElementById("demo");
+
+demo.addEventListener("mousemove", (e) => {
+  moves++;
+
+  const dot = document.createElement("div");
+  dot.className = "dot";
+  dot.style.left = e.offsetX + "px";
+  dot.style.top = e.offsetY + "px";
+  demo.appendChild(dot);
+
+  setTimeout(() => dot.remove(), 500);
+
+  let now = Date.now();
+  if (now - lastMove > 500) pauses++;
+  lastMove = now;
+
+  updateScores();
+});
+
+function updateScores() {
+  let curiosity = Math.min(moves, 100);
+  let attention = Math.max(100 - pauses * 5, 0);
+  let flow = Math.min(moves - pauses * 2, 100);
+  let total = Math.floor((curiosity + attention + flow) / 3);
+
+  document.getElementById("curiosity").innerText = curiosity;
+  document.getElementById("attention").innerText = attention;
+  document.getElementById("flow").innerText = flow;
+  document.getElementById("pause").innerText = pauses;
+
+  let bar = document.getElementById("bar");
+  bar.style.width = total + "%";
+
+  if (total < 40) {
+    bar.style.background = "red";
+    document.getElementById("result").innerText = "Bot Detected ❌";
+  } else if (total < 70) {
+    bar.style.background = "orange";
+    document.getElementById("result").innerText = "Suspicious ⚠️";
+  } else {
+    bar.style.background = "green";
+    document.getElementById("result").innerText = "Human Verified ✅";
+  }
+}
+
+function resetTest() {
+  moves = 0;
+  pauses = 0;
+  document.getElementById("demo").innerHTML = "";
+  updateScores();
+}
+</script>
+
+</body>
+</html>
